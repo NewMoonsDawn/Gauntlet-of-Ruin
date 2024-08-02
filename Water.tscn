@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://bufm1e7l4aar8"]
+
+[ext_resource type="Script" path="res://Water.gd" id="1_gqt35"]
+[ext_resource type="Texture2D" uid="uid://cnmaifsb3tpxt" path="res://Water_Bend_Elska/Water_03 (1).png" id="1_hbovi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adg48"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xduh"]
+atlas = ExtResource("1_hbovi")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdaj2"]
+atlas = ExtResource("1_hbovi")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfegl"]
+atlas = ExtResource("1_hbovi")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_talo8"]
+atlas = ExtResource("1_hbovi")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qham4"]
+atlas = ExtResource("1_hbovi")
+region = Rect2(0, 24, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jipan"]
+atlas = ExtResource("1_hbovi")
+region = Rect2(16, 24, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nukbx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xduh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdaj2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfegl")
+}, {
+"duration": 10.0,
+"texture": SubResource("AtlasTexture_talo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qham4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jipan")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_gqt35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_adg48")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nukbx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

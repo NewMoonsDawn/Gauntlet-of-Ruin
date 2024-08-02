@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr7l7c44o4rdm"]
+
+[ext_resource type="Texture2D" uid="uid://cjbgps2xpshtj" path="res://Sunny-land-files/Sunny-land-files/Graphical Assets/environment/Props/platform-long.png" id="1_6li6y"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_he2tx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6li6y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6gfnu"]
+size = Vector2(32, 16)
+
+[node name="OneWayDown" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_he2tx")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_6gfnu")
+one_way_collision = true
